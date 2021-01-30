@@ -1,0 +1,41 @@
+{
+  "parcelWt": 10,
+
+  "sender": {
+     "name": "Mobisense Monika Mazurek",
+     "zipCode": "25-663",
+     "terrain": "Kielce",
+     "street": "Ul. Olszewskiego",
+     "houseNo": "6",
+     "aptNo": "313",
+     "phoneNo": "664540929",
+     "emailAddr": "monika@sourceful.nl"
+   },
+
+   "recipient": {
+      "name": "Наталиа Иванова",
+      "phoneNo": "+48505032236",
+      "emailAddr": "natalia@ivanova.pl"
+   },
+    
+    "nearestBranch": {
+       "branch": "Chornobai, vul. Cherkaska, 18"
+    },
+
+    "customs": {
+       "item1": {
+          "item": "Chocolates",
+          "quantity": "2",
+          "weight": "10",
+          "value": "20"
+      },
+      "item2": {
+         "item": "Mug",
+         "quantity": "1",
+         "weight": "2",
+         "value": "5"
+      },
+       
+      "totalWeight": "12"
+    }
+}
