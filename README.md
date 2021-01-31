@@ -3,7 +3,7 @@
   
 # Test location
     The tests can be found in location  
-    DemoProject\cypress\integration\functional
+    Shipment\cypress\integration\functional
   
 #  Running tests in command prompt
     npm install
@@ -19,4 +19,4 @@
       $ docker run -it -v $PWD:/e2e -w /e2e cypress/included:3.2.0
 
 # videos of the test execution are generated in the below folder
-    DemoProject\cypress\videos\functional
+    Shipment\cypress\videos\functional
