@@ -1,14 +1,17 @@
 
 const { cssSelectors } = require('../../support/selectors');
 
-describe("Successful order placement", function () {
+describe("UI Validation Tests", function () {
 
-    before('Use of fixtures', function () {
+   before('Use of fixtures', function () {
         cy.fixture('testData.json')
-          .as('parcelDetails')
+        .as('parcelDetails')
+        cy.fixture('errorMessages.json')
+          .as('errMsgs')
       });
 
-   it("Send parcel happy flow scenario", function () {
+   context('Error Messages', function () {
+       it("Verify total weight and cyrillic error messages", function () {
 
         //Visit the website, enter weight and proceed
         cy.visit("/");
@@ -54,7 +57,7 @@ describe("Successful order placement", function () {
         cy.get(cssSelectors.customs.item2.value).type(this.parcelDetails.customs.item2.value, {force: true});
 
         //Fill the total weight
-        cy.get(cssSelectors.customs.totalWeight).clear().type(10);
+        cy.get(cssSelectors.customs.totalWeight).clear().type('10');
 
         //Check the terms of conditions
         cy.get(cssSelectors.termsStatement.first).click({force: true});
@@ -65,33 +68,12 @@ describe("Successful order placement", function () {
         //click on next step
         cy.get(cssSelectors.nextStepBtn).click();
 
-        //Verify the sender details are correct on the order summary
-        cy.get(cssSelectors.orderForm.sender.name).should('contain', this.parcelDetails.sender.name);
-        cy.get(cssSelectors.orderForm.sender.zipCode).should('contain', this.parcelDetails.sender.zipCode);
-        cy.get(cssSelectors.orderForm.sender.terrain).should('contain', this.parcelDetails.sender.terrain);
-        cy.get(cssSelectors.orderForm.sender.street).should('contain', this.parcelDetails.sender.street);
-        cy.get(cssSelectors.orderForm.sender.houseNo).should('contain', this.parcelDetails.sender.houseNo);
-        cy.get(cssSelectors.orderForm.sender.aptNo).should('contain', this.parcelDetails.sender.aptNo);
-        cy.get(cssSelectors.orderForm.sender.phoneNo).should('contain', this.parcelDetails.sender.phoneNo);
-        cy.get(cssSelectors.orderForm.sender.emailAddr).should('contain', this.parcelDetails.sender.emailAddr);
+        //Verify the error message when total weight of the package is less than the declared weight
+        cy.get(cssSelectors.errors.wtError).should('contain', this.errMsgs.wtError);
 
-        //Verify the recipient details are correct on the order summary
-        cy.get(cssSelectors.orderForm.recipient.name).should('contain', this.parcelDetails.recipient.name);
-        cy.get(cssSelectors.orderForm.recipient.phoneNo).should('contain', this.parcelDetails.recipient.phoneNo);
-        cy.get(cssSelectors.orderForm.recipient.emailAddr).should('contain', this.parcelDetails.recipient.emailAddr);
+        //Verify the error message when the recipient name is not in Cyrillic
+        cy.get(cssSelectors.errors.cyrillicError).should('contain', this.errMsgs.cyrillicError);
 
-        //Verify the order item1 details are correct on the order summary
-        cy.get(cssSelectors.orderForm.customs.item1.name).should('contain', this.parcelDetails.customs.item1.item);
-        cy.get(cssSelectors.orderForm.customs.item1.qty).should('contain', this.parcelDetails.customs.item1.quantity);
-        cy.get(cssSelectors.orderForm.customs.item1.wt).should('contain', this.parcelDetails.customs.item1.weight);
-        cy.get(cssSelectors.orderForm.customs.item1.val).should('contain', this.parcelDetails.customs.item1.value);
-
-        //Verify the order item2 details are correct on the order summary
-        cy.get(cssSelectors.orderForm.customs.item2.name).should('contain', this.parcelDetails.customs.item2.item);
-        cy.get(cssSelectors.orderForm.customs.item2.qty).should('contain', this.parcelDetails.customs.item2.quantity);
-        cy.get(cssSelectors.orderForm.customs.item2.wt).should('contain', this.parcelDetails.customs.item2.weight);
-        cy.get(cssSelectors.orderForm.customs.item2.val).should('contain', this.parcelDetails.customs.item2.value);
-
-    }) 
-  
+    })
+  })
 });

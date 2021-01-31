@@ -83,7 +83,11 @@ const cssSelectors = {
           val: 'tbody > :nth-child(2) > :nth-child(5)',
       }
     }
-   }
+   },
+      errors: {
+         wtError: '.col-lg-5 > .row > .pl-lg-0 > .ng-active > .invalid-feedback',
+         cyrillicError: ':nth-child(2) > .form-group > .mt-0'
+      }
 };
 
 module.exports = { cssSelectors };
