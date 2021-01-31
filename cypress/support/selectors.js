@@ -67,6 +67,22 @@ const cssSelectors = {
        phoneNo:':nth-child(2) > .card > .card-body > .card-text > :nth-child(7) > .calculator-summary__value',
        emailAddr:':nth-child(2) > .card > .card-body > .card-text > :nth-child(8) > .calculator-summary__value',
       },
+
+      customs: {
+        item1: {
+          name: 'tbody > :nth-child(1) > :nth-child(2)',
+          qty: 'tbody > :nth-child(1) > :nth-child(3)',
+          wt: 'tbody > :nth-child(1) > :nth-child(4)',
+          val: 'tbody > :nth-child(1) > :nth-child(5)',
+      },
+
+        item2: {
+          name: 'tbody > :nth-child(2) > :nth-child(2)',
+          qty: 'tbody > :nth-child(2) > :nth-child(3)',
+          wt: 'tbody > :nth-child(2) > :nth-child(4)',
+          val: 'tbody > :nth-child(2) > :nth-child(5)',
+      }
+    }
    }
 };
 

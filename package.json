@@ -9,8 +9,7 @@
   "author": "Damodaran",
   "license": "ISC",
   "dependencies": {
-    "cypress-xpath": "^1.4.0",
-    "url-join": "^4.0.1"
+    "cypress-xpath": "^1.4.0"
   },
   "devDependencies": {
     "cypress": "^6.3.0"
