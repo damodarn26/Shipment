@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run": "node_modules/.bin/cypress run",
+    "cypress:open": "node_modules/.bin/cypress open",
+    "cypress:test": "node_modules/.bin/cypress run --spec cypress/integration/**/* --browser electron"
   },
   "author": "Damodaran",
   "license": "ISC",
   "dependencies": {
-    "cypress-xpath": "^1.4.0"
+    "cypress-xpath": "^1.4.0",
+    "mocha": "^5.2.0",
+    "mochawesome": "^4.1.0",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^2.3.2"
   },
   "devDependencies": {
     "cypress": "^6.3.0"

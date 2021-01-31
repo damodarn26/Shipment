@@ -54,7 +54,7 @@ describe("Successful order placement", function () {
         cy.get(cssSelectors.customs.item2.value).type(this.parcelDetails.customs.item2.value, {force: true});
 
         //Fill the total weight
-        cy.get(cssSelectors.customs.totalWeight).clear().type(10);
+        cy.get(cssSelectors.customs.totalWeight).clear().type(this.parcelDetails.customs.totalWeight);
 
         //Check the terms of conditions
         cy.get(cssSelectors.termsStatement.first).click({force: true});
