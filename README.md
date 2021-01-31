@@ -1,9 +1,17 @@
 # DemoProject
     This test automation project is developed using cypress
   
-# Test location
+# Tests location
     The tests can be found in location  
     Shipment\cypress\integration\functional
+    
+# The test data is stored in files in location
+    Shipment\cypress\fixtures\testData.json
+    Shipment\cypress\fixtures\errorMessages.json
+    
+# The selectors is stored in location
+    Shipment\TestProject\cypress\support\selectors.js
+    
   
 #  Running tests in command prompt
     npm install
